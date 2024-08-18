@@ -171,6 +171,10 @@ get_header(); ?>
 <section>
     <div id="map" style="background-image:url(<?php echo esc_url($path . '/assets/images/Map.png'); ?>)"></div>
 </section>
+<section id="gallery">
+    <h2><strong>#YellowKitchens</strong> in instagram</h2>
+    <?php echo do_shortcode('[modula id="99"]'); ?>
+</section>
 
 
 
