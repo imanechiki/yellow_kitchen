@@ -495,17 +495,20 @@ section {
     flex-direction: column;
   }
 }
-#restaurants {
+#restaurants,
+#specialities {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-#restaurants .restaurants-header {
+#restaurants .restaurants-header,
+#specialities .specialities-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-#restaurants .show-more {
+#restaurants .show-more,
+#specialities .show-more {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -516,7 +519,8 @@ section {
     box-shadow 0.3s ease;
 }
 
-#restaurants .show-more a {
+#restaurants .show-more a,
+#specialities .show-more a {
   text-decoration: none;
   font-family: "Manrope";
   font-size: 1rem;
@@ -525,13 +529,15 @@ section {
   transition: color 0.3s ease;
 }
 
-#restaurants .show-more:hover {
+#restaurants .show-more:hover,
+#specialities .show-more:hover {
   background-color: #575b71;
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-#restaurants .show-more a::before {
+#restaurants .show-more a::before,
+#specialities .show-more a::before {
   content: "";
   position: absolute;
   left: 0;
@@ -544,16 +550,18 @@ section {
   transition: transform 0.3s ease;
 }
 
-#restaurants .show-more:hover a {
+#restaurants .show-more:hover a,
+#specialities .show-more:hover a {
   color: #ffffff;
 }
 
-#restaurants .show-more:hover a::before {
+#restaurants .show-more:hover a::before,
+#specialities .show-more:hover a::before {
   transform: scaleX(1);
   transform-origin: left;
 }
 
-#restaurants .restaurants-header h2 {
+#restaurants .restaurants-header h2{
   font-family: "Georgia";
   font-size: clamp(2rem, 3vw, 4rem);
   color: #3f4255;
@@ -791,5 +799,108 @@ section {
   }
   #adress .adress-text p {
     width: 90%;
+  }
+  #address-input{
+    padding: 1.5rem 1rem;
+    
+}
+}
+
+#specialities .specialities-items-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#specialities .specialities-items {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#specialities .specialities-item {
+  padding: 10px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+
+}
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+
+
+.specialities-item:hover {
+  animation: float 2s infinite ease-in-out;
+}
+
+#specialities .specialities-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+#specialities .menu-prev,
+#specialities .menu-next {
+  background: none;
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  cursor: pointer;
+}
+
+#specialities .menu-prev {
+  left: -2vw;
+}
+
+#specialities .menu-next {
+  right: -2vw;
+}
+
+#specialities.menu-prev img,
+#specialities .menu-next img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+#specialities .specialities-header h2 {
+  font-family: "Georgia";
+  font-size: clamp(2rem, 3vw, 4rem);
+  color: #3f4255;
+  font-weight: 500;
+}
+@media (max-width: 1024px) {
+  #specialities .menu-prev {
+    left: -4vw;
+  }
+
+  #specialities .menu-next {
+    right: -4vw;
+  }
+}
+@media (max-width: 768px) {
+  #specialities .menu-prev {
+    left: -8vw;
+  }
+
+  #specialities .menu-next {
+    right: -8vw;
+  }
+}
+@media (max-width: 480px) {
+  #specialities .specialities-items-wrapper {
+    width: 100%;
   }
 }
