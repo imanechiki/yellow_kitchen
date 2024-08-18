@@ -974,3 +974,15 @@ section {
       height: 25vh;
   }
 }
+#gallery{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#gallery h2{
+  font-family: "Georgia";
+  font-size: clamp(2rem, 3vw, 4rem);
+  color: #3f4255;
+  font-weight: 500;
+
+}
