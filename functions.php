@@ -89,12 +89,22 @@ add_filter('template_include', 'webloo_template_include');
 /**
  * Enqueue scripts and styles and json file.
  */
-function webloo_enqueue_scripts()
+function yellowKitchen_enqueue_scripts()
 {
     // Enqueue general styles
     wp_enqueue_style('webloo-styles', get_stylesheet_uri());
 
-    // Enqueue specific scripts
+    // Enqueue Slick Carousel styles
+    wp_enqueue_style('slick-carousel-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+    wp_enqueue_style('slick-theme-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
+
+    // Enqueue Slick Carousel script first
+    wp_enqueue_script('slick-carousel-js', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), null, true);
+
+    // Enqueue custom script that initializes Slick Carousel
+    wp_enqueue_script('custom-slick-init', get_template_directory_uri() . '/js/slick-carousel.js', array('jquery', 'slick-carousel-js'), null, true);
+
+    // Enqueue your main custom script
     wp_enqueue_script('custom-script', get_template_directory_uri() . '/js/script.js', array('jquery'), null, true);
 
     // Localize scripts with necessary parameters
@@ -108,7 +118,9 @@ function webloo_enqueue_scripts()
     wp_localize_script('custom-cart', 'ajax_params', $ajax_params);
 }
 
-add_action('wp_enqueue_scripts', 'webloo_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'yellowKitchen_enqueue_scripts');
+
+
 
 
 
@@ -179,3 +191,14 @@ function load_jquery()
     }
 }
 add_action('wp_enqueue_scripts', 'load_jquery');
+
+
+add_action('rest_api_init', function () {
+    register_rest_route('myplugin/v1', '/search_restaurants/', array(
+        'methods' => 'POST',
+        'callback' => 'search_restaurants_by_address',
+        'permission_callback' => '__return_true', // Adjust as needed
+    ));
+});
+
+

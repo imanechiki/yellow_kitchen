@@ -9,6 +9,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Toggle the active class on the navigation menu
         siteNavigation.classList.toggle('active');
     });
+
+
+
+    // title annimation
+    const headerTitle = document.querySelector('#restaurants .restaurants-header h2');
+    if (headerTitle) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    headerTitle.classList.add('animate');
+                    observer.unobserve(headerTitle);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(headerTitle);
+    }
 });
 
 
@@ -28,3 +45,5 @@ jQuery(document).ready(function($) {
         return false;
     });
 });
+
+
