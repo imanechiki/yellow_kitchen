@@ -72,6 +72,9 @@ $path = get_template_directory_uri();
 
 
 <body <?php body_class(); ?>>
+<a href="#" id="scroll-up" class="scroll-up">
+    <i class="fas fa-arrow-up"></i> <!-- Font Awesome Arrow Icon -->
+</a>
     <header id="site-header">
         <div class="logo">
             <a href="<?php echo esc_url(home_url('/')); ?>" class="logo-container">
