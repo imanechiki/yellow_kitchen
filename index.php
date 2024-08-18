@@ -142,10 +142,10 @@ get_header(); ?>
 
         <div class="specialities-items">
             <?php
-            if (have_rows('specialities')): 
+            if (have_rows('specialities')):
                 while (have_rows('specialities')):
                     the_row();
-                    $speciality_image = get_sub_field('specialities_item'); 
+                    $speciality_image = get_sub_field('specialities_item');
                     if ($speciality_image) {
                         $image_url = $speciality_image['url'];
                         $image_alt = $speciality_image['alt'];
@@ -164,6 +164,12 @@ get_header(); ?>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/Button.svg" alt="Next">
         </button>
     </div>
+</section>
+<section id="bg" style="background-image:url(<?php echo esc_url($path . '/assets/images/USP.png'); ?>)">
+
+</section>
+<section>
+    <div id="map" style="background-image:url(<?php echo esc_url($path . '/assets/images/Map.png'); ?>)"></div>
 </section>
 
 
