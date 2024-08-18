@@ -35,4 +35,41 @@ jQuery(document).ready(function($) {
             }
         ]
     });
+
+
+    $('.specialities-items').slick({
+        infinite: true,
+        slidesToShow: 8,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        prevArrow: $('.menu-prev'), 
+        nextArrow: $('.menu-next'), 
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    });
 });
+

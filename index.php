@@ -130,6 +130,42 @@ get_header(); ?>
         </form>
     </div>
 </section>
+<section id="specialities">
+    <div class="specialities-header">
+        <h2>Specialities</h2>
+        <div class="show-more"><a href="<?php echo home_url('/specialities'); ?>">Show All</a></div>
+    </div>
+    <div class="specialities-items-wrapper">
+        <button type="button" class="menu-prev">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/Button (1).svg" alt="Previous">
+        </button>
+
+        <div class="specialities-items">
+            <?php
+            if (have_rows('specialities')): 
+                while (have_rows('specialities')):
+                    the_row();
+                    $speciality_image = get_sub_field('specialities_item'); 
+                    if ($speciality_image) {
+                        $image_url = $speciality_image['url'];
+                        $image_alt = $speciality_image['alt'];
+                        echo '<div class="specialities-item">';
+                        echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '" />';
+                        echo '</div>';
+                    }
+                endwhile;
+            else:
+                echo '<p>No specialties found.</p>';
+            endif;
+            ?>
+        </div>
+
+        <button type="button" class="menu-next">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/Button.svg" alt="Next">
+        </button>
+    </div>
+</section>
+
 
 
 
