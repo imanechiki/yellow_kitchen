@@ -191,3 +191,14 @@ function load_jquery()
     }
 }
 add_action('wp_enqueue_scripts', 'load_jquery');
+
+
+add_action('rest_api_init', function () {
+    register_rest_route('myplugin/v1', '/search_restaurants/', array(
+        'methods' => 'POST',
+        'callback' => 'search_restaurants_by_address',
+        'permission_callback' => '__return_true', // Adjust as needed
+    ));
+});
+
+
